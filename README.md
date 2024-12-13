@@ -16,4 +16,5 @@ ls -l /usr/local/bin/aws
 ```sh
 aws --version
 ```sh
+
 5. Install the Kubectl version compatible with Cluster Version 1.31 by running all the required commands from the [AWS Document to install Kubectl](kubectl aws documentation)
