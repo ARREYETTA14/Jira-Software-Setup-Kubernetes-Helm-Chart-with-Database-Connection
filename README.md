@@ -80,7 +80,15 @@ kubectl get svc
 - To solve this, ```rerun step 11```. After which, you can grab the ```LoadBalancerDNS:8080``` once again and run on the browser and this time, you will get the below outcome which indicates that your connection with the database has been established. Frome here, you can click **Next** pass your **License**.
 ![Screenshot 2024-11-18 173856-3](https://github.com/user-attachments/assets/933f5e9c-9cf3-4ee2-a032-ee02cf139d2d)
 
+16. You can check all the tables present in your **database schema**, e.g. **Public** and you will see all the tables that were created as a result of the connection established between your **database** and the **Jira-software pod**.
 
+![Screenshot 2024-11-18 185730](https://github.com/user-attachments/assets/11e48093-c45c-4870-af1e-5276e7d43445)
 
+***NB:*** Another very interesting way you could elaborate on this project is to do the following:
+- In case you had a database pod running in the cluster already, you could connect it to the jira-software pod using the values.yml file.
+
+- Once the ```jira-software pod``` is communicating with the ```database pod``` in the cluster, you could create an RDS database, and create a database in it with a similar name as the one you created in the database pod.
+    - Create a **Publication** for all the tables in the **database pod**, using the ```dump``` command, you can automatically create all the tables available in your **database pod** in your **RDS Postgres DB**.
+    - After this, while in the **RDS Postgres DB**, you could create a **subscription** to the **Publication** in the database pod such that every data that goes into the database pod will be automatically replicated in the **RDS Database Pod**. 
 
 
