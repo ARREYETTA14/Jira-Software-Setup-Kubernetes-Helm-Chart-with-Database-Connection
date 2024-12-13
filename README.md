@@ -41,8 +41,9 @@ helm version
 helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/
 helm repo update
 ```
+10. Create an RDS database with ```Postgressql Engine```. log in to the database and run commands in the ```public_schema.md``` script in the default **postgres database** to **grant permission to the public schema** such that it can communicate with the ```jira-software pod```.
 
-10. Update the ```jira-values.yml``` file as per your requirement so it connects to your database.
+11. Update the ```jira-values.yml``` file as per your requirement so it connects to your database.
 
 ***NB:*** By default the [atlassian/jira-software](https://hub.docker.com/r/atlassian/jira-software/) image will create a [H2](https://www.h2database.com/html/main.html) database for evaluation purposes, this should NOT be used in production. You can either allow this chart to create a [PostgreSQL](https://hub.docker.com/_/postgres) instance specifically for Jira Software by specifying ```postgresql.enabled``` as ```true``` or you can use an external PostgreSQL instance by specifying the connection details on ```psql```. 
 
@@ -50,37 +51,37 @@ helm repo update
 
 ![Screenshot 2024-12-13 115209](https://github.com/user-attachments/assets/cad8e8b7-83df-43f0-b1ad-19be75f12d0b)
 
-11. Install the Helm Chart and pass the values by using the following command:
+12. Install the Helm Chart and pass the values by using the following command:
 ```sh
 helm upgrade --install --namespace default --values ./jira-values.yml my-release stevehipwell/jira-software
 ```
 ![image](https://github.com/user-attachments/assets/d03d13af-7e21-4ccc-a716-023ab732d8da)
 
-12. Check if the ```jira-software pod``` is running:
+13. Check if the ```jira-software pod``` is running:
 ```sh
 kubectl get pods
 ```
 ![Screenshot 2024-11-18 191457](https://github.com/user-attachments/assets/dc344034-2f87-4c6a-b3c1-24cd8d069605)
 
-13. Get the ```LoadBalancer``` DNS along side the port on which it runs and paste on a browser. E.g. ```LoadBalancerDNS:8080```
+14. Get the ```LoadBalancer``` DNS along side the port on which it runs and paste on a browser. E.g. ```LoadBalancerDNS:8080```
 ```sh
 kubectl get svc
 ```
 ![Screenshot 2024-11-18 191452](https://github.com/user-attachments/assets/e70553dc-9b20-4bbc-b701-1b66404bdb48)
 
-14. In the GUI that you see, you can choose any you wish but for this demo, we will select the second option since we have an external database we wish to communicate with manually.
+15. In the GUI that you see, you can choose any you wish but for this demo, we will select the second option since we have an external database we wish to communicate with manually.
 ![Screenshot 2024-11-18 170647-1](https://github.com/user-attachments/assets/88d3b9f3-e240-452a-8a74-d5c5bdf09237)
 
 - After you select the second option, pass in the ```database credentials``` as asked by the interface. Then click ```Next``` directly or "Test Connection``` first before clicking on **Next**.
 ![Screenshot 2024-11-18 170733-2](https://github.com/user-attachments/assets/06d86882-7618-4c1f-86a1-6bd4c98f62e6)
 
-15. After hitting Next, it might not work. It might give you the following ```error``` message.
+16. After hitting Next, it might not work. It might give you the following ```error``` message.
 ![Screenshot 2024-11-18 191704](https://github.com/user-attachments/assets/695748cd-35c8-4386-b3f1-4da61818d220)
 
-- To solve this, ```rerun step 11```. After which, you can grab the ```LoadBalancerDNS:8080``` once again and run on the browser and this time, you will get the below outcome which indicates that your connection with the database has been established. Frome here, you can click **Next** pass your **License**.
+- To solve this, ```rerun step 12```. After which, you can grab the ```LoadBalancerDNS:8080``` once again and run on the browser and this time, you will get the below outcome which indicates that your connection with the database has been established. Frome here, you can click **Next** pass your **License**.
 ![Screenshot 2024-11-18 173856-3](https://github.com/user-attachments/assets/933f5e9c-9cf3-4ee2-a032-ee02cf139d2d)
 
-16. You can check all the tables present in your **database schema**, e.g. **Public** and you will see all the tables that were created as a result of the connection established between your **database** and the **Jira-software pod**.
+17. You can check all the tables present in your **database schema**, e.g. **Public** and you will see all the tables that were created as a result of the connection established between your **database** and the **Jira-software pod**.
 
 ![Screenshot 2024-11-18 185730](https://github.com/user-attachments/assets/11e48093-c45c-4870-af1e-5276e7d43445)
 
