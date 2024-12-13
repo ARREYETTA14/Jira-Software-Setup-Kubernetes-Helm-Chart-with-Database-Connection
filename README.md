@@ -42,6 +42,11 @@ helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/
 helm repo update
 ```
 
-10. Update the “jira-values.yml” as per the requirement so it connects to your database.
+10. Update the ```jira-values.yml``` file as per your requirement so it connects to your database.
 
 ***NB:*** By default the [atlassian/jira-software](https://hub.docker.com/r/atlassian/jira-software/) image will create a [H2](https://www.h2database.com/html/main.html) database for evaluation purposes, this should NOT be used in production. You can either allow this chart to create a [PostgreSQL](https://hub.docker.com/_/postgres) instance specifically for Jira Software by specifying ```postgresql.enabled``` as ```true``` or you can use an external PostgreSQL instance by specifying the connection details on ```psql```. 
+
+- In the ```service``` section of the ```jira-values.yml``` file, you can specify a ```LoadBalancer``` service so you can reach the cluster from the internet.
+
+
+
