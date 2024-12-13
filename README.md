@@ -43,4 +43,5 @@ helm repo update
 ```
 
 10. Update the “jira-values.yml” as per the requirement so it connects to your database.
-###NB: By default the atlassian/jira-software image will create a H2 database for evaluation purposes, this should NOT be used in production. You can either allow this chart to create a PostgreSQL instance specifically for Jira Software by specifying postgresql.enabled as true or you can use an external PostgreSQL instance by specifying the connection details on psql. 
+
+***NB:*** By default the atlassian/jira-software image will create a H2 database for evaluation purposes, this should NOT be used in production. You can either allow this chart to create a PostgreSQL instance specifically for Jira Software by specifying postgresql.enabled as true or you can use an external PostgreSQL instance by specifying the connection details on psql. 
