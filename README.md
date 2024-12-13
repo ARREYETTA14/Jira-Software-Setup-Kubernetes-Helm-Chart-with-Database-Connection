@@ -85,6 +85,9 @@ kubectl get svc
 
 ![Screenshot 2024-11-18 185730](https://github.com/user-attachments/assets/11e48093-c45c-4870-af1e-5276e7d43445)
 
+***NB:*** 
+- Make sure the check the security group rules of each resource for smooth communication between the required resources.
+
 ***NB:*** Another very interesting way you could elaborate on this project is to do the following:
 - In case you had a database pod running in the cluster already, you could connect it to the jira-software pod using the values.yml file.
 
