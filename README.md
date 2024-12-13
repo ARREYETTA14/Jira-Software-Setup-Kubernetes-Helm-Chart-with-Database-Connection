@@ -36,5 +36,5 @@ chmod 700 get_helm.sh
 helm version
 ```
 
-9. Add the '''stevehipwell'''  Repo  steve to the Helm 
+9. Add the ```stevehipwell``` Repo  steve to the Helm 
 
