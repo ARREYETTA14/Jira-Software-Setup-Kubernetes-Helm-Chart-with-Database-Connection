@@ -11,10 +11,10 @@ unzip awscliv2.zip
 sudo ./aws/install
 sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
 ls -l /usr/local/bin/aws
-```bash
+```
 - Check AWS Version after this
 ```sh
 aws --version
-```sh
+```
 
 5. Install the Kubectl version compatible with Cluster Version 1.31 by running all the required commands from the [AWS Document to install Kubectl](kubectl aws documentation)
