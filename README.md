@@ -43,7 +43,7 @@ helm repo update
 ```
 10. Create an RDS database with ```Postgressql Engine```. log in to the database and run commands in the ```public_schema.md``` script in the default **postgres database** to **grant permission to the public schema** such that it can communicate with the ```jira-software pod```.
 
-11. Update the ```jira-values.yml``` file as per your requirement so it connects to your database.
+11. In your client node, create and update the ```jira-values.yml``` file as per your requirement so it connects to your database.
 
 ***NB:*** By default the [atlassian/jira-software](https://hub.docker.com/r/atlassian/jira-software/) image will create a [H2](https://www.h2database.com/html/main.html) database for evaluation purposes, this should NOT be used in production. You can either allow this chart to create a [PostgreSQL](https://hub.docker.com/_/postgres) instance specifically for Jira Software by specifying ```postgresql.enabled``` as ```true``` or you can use an external PostgreSQL instance by specifying the connection details on ```psql```. 
 
