@@ -36,5 +36,10 @@ chmod 700 get_helm.sh
 helm version
 ```
 
-9. Add the ```stevehipwell``` Repo  steve to the Helm 
+9. Add the ```stevehipwell``` Repo to the Helm 
+```sh
+helm repo add stevehipwell https://stevehipwell.github.io/helm-charts/
+helm repo update
+```
 
+10. 
