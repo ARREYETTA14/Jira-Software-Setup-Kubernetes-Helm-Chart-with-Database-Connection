@@ -17,4 +17,24 @@ ls -l /usr/local/bin/aws
 aws --version
 ```
 
-5. Install the Kubectl version compatible with Cluster Version 1.31 by running all the required commands from the [AWS Document to install Kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html#linux_amd64_kubectl)
+5. Install the Kubectl version compatible with Cluster Version 1.31 by running all the required commands from the [AWS Documentation to install Kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html#linux_amd64_kubectl)
+6. Check if your client node can now communicate with the cluster using:
+
+```sh
+kubectl version
+or
+kubectl get nodes
+```
+7. Install helm in the worker node
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+8. Verify helm installation
+```sh
+helm version
+```
+
+9. Add the '''stevehipwell'''  Repo  steve to the Helm 
+
